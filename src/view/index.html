@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= require('html-loader!./layout/header-common.html') %>
+		<title>
+			<%= htmlWebpackPlugin.options.title %>
+		</title>
+	</head>
+	<body>
+		<%= require('html-loader!./layout/nav.html') %>
+		<%= require('html-loader!./layout/header.html') %>
+
+		<div class="w">
+			<ul class="keywords-list">
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=图书">图书</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=童书">童书</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=家居">家居</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=家具">家具</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=文艺">文艺</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=传记">传记</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=教材">教材</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=外语">外语</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=高数">高数</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=线代">线代</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=社会科学">社会科学</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=投资理财">投资理财</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=历史">历史</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=古籍">古籍</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=宗教文化">宗教文化</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=软件工程">软件工程</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=计算机">计算机</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=宠物杂志">宠物杂志</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=日历">日历</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=车载户外">车载户外</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=工具书">工具书</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=会计">会计</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=市场">市场</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=小说">小说</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=网络">网络</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=青春">青春</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=艺术">艺术</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+				<li class="keywords-item">
+					<a class="link" target="_blank" href="./list.html?keyword=软件">软件</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=硬件">硬件</a>/
+					<a class="link" target="_blank" href="./list.html?keyword=数据库">数据库</a>
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</li>
+			</ul>
+			<div class="banner-con">
+				<div class="loading"></div>
+			</div>
+			<div class="sub-column">
+				<div class="sub-item top">
+					<a href="">
+						<img src=<%=require('../image/sub-column/top.jpg') %> class="img-rounded">
+					</a>
+				</div>
+				<div class="sub-item mid">
+					<a href="">
+						<img src=<%=require('../image/sub-column/mid.jpg') %> class="img-rounded">
+					</a>
+				</div>
+				<div class="sub-item bottom">
+					<a href="">
+						<img src=<%=require('../image/sub-column/bottom.jpg') %> class="img-rounded">
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- 商品展示 -->
+		<div class="w">
+
+            <div class="floor-wrap">
+            	<h1 class="floor-title">新书上架</h1>
+            	<ul id="floor1" class="floor-list">
+            		<div class="loading"></div>
+            	</ul>
+            </div>
+            
+            <div class="floor-wrap">
+            	<h1 class="floor-title">人气作家</h1>
+            	<ul id="floor2" class="floor-list">
+            		<div class="loading"></div>
+            	</ul>
+            </div>
+            
+            <div class="floor-wrap">
+            	<h1 class="floor-title">新锐作家</h1>
+            	<ul id="floor3" class="floor-list">
+            		<div class="loading"></div>
+            	</ul>
+            </div>
+		</div>
+
+		<%= require('html-loader!./layout/footer.html') %>
+	</body>
+</html>
