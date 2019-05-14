@@ -5,7 +5,7 @@
 }
 .intro-wrap .p-img-con{
     float: left;
-    width: 420px;
+    width: 420px; 
 }
 /* 主图 */
 .intro-wrap .p-img-con .main-img-con{
@@ -236,6 +236,11 @@
     margin-top: 5px;
     margin-left: 139px;
     /* border: 1px solid #aaa; */
+}
+.no-appraise{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 15px;
 }
 /* 错误信息 */
 .err-tip{

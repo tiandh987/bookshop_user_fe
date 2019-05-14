@@ -35,5 +35,5 @@ var navSide = {
 		$('.nav-side').html(navHtml);
 	}
 };
-
+ 
 module.exports = navSide;
