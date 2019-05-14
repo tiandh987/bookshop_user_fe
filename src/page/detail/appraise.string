@@ -1,0 +1,34 @@
+{{#list}}
+    <div class="appraise-item">
+        <img src="../../image/anonymous.jpg" class="img-circle img-user">
+        <span class="username">匿名用户</span>
+        <div class="grade-con">
+            {{#good}}
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            {{/good}}
+            {{#mid}}
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true" style="visibility:hidden"></span>
+            {{/mid}}
+            {{#bad}}
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true" style="visibility:hidden"></span>
+            <span class="glyphicon glyphicon-star" aria-hidden="true" style="visibility:hidden"></span>
+            {{/bad}}
+        </div>
+        <div class="appraise-con">
+            <p>
+                {{text}}
+            </p>
+        </div>
+        <div class="appraise-time">
+            <p>{{createTime}}</p>
+        </div>
+    </div>
+{{/list}}
+{{^list}}
+    <p class="no-appraise">暂无评论</p>
+{{/list}}

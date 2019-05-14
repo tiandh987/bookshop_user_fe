@@ -1,0 +1,10 @@
+{{#appraiseTypeList}} 
+	{{#isActive}}
+		 <li class="tab-appraise-type active" type={{name}}>
+	{{/isActive}}
+	{{^isActive}}
+		<li class="tab-appraise-type" type={{name}}>
+	{{/isActive}}
+			{{desc}}
+		</li>
+{{/appraiseTypeList}}

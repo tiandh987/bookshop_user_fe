@@ -20,6 +20,20 @@ var _product = {
             success : resolve,
             error   : reject
         });
+    },
+    // 获取商品评价信息
+    getProductAppraise : function(productId, grade, resolve, reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/appraise/query_appraise_model.do'),
+            data    : {
+                productId : productId,
+                grade : grade,
+                pageNum : 1,
+                pageSize : 10
+            },
+            success : resolve,
+            error   : reject
+        });
     }
 }
 module.exports = _product;
