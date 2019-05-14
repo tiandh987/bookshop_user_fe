@@ -36,10 +36,74 @@
 <div class="detail-wrap">
     <div class="detail-tab-con">
         <ul class="tab-list">
-            <li class="tab-item active">商品详情</li>
+            <li id="tab-detail" class="tab-item active">商品详情</li>
+            <li id="tab-appraise" class="tab-item">商品评价</li>
         </ul>
     </div>
-    <div class="detail-con">
+    <div id="detail-con" class="detail-con">
         {{{detail}}}
+    </div>
+    <div id="appraise-con" class="appraise-con">
+        <div class="appraise-type-con">
+            <ul class="appraise-type">
+                <li class="tab-appraise-type active">全部评价</li>
+                <li class="tab-appraise-type">好评</li>
+                <li class="tab-appraise-type">中评</li>
+                <li class="tab-appraise-type">差评</li>
+            </ul>
+        </div>
+        <div class="appraise-items">
+            <div class="appraise-item">
+                <img src="../../image/anonymous.jpg" class="img-circle img-user">
+                <span class="username">匿名用户</span>
+                <div class="grade-con">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                </div>
+                <div class="appraise-con">
+                    <p>
+                        突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断
+                    </p>
+                </div>
+                <div class="appraise-time">
+                    <p>2019-05-10 22:23:30</p>
+                </div>
+            </div>
+            <div class="appraise-item">
+                <img src="../../image/anonymous.jpg" class="img-circle img-user">
+                <span class="username">匿名用户</span>
+                <div class="grade-con">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                </div>
+                <div class="appraise-con">
+                    <p>
+                        突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断
+                    </p>
+                </div>
+                <div class="appraise-time">
+                    <p>2019-05-10 22:23:30</p>
+                </div>
+            </div>
+            <div class="appraise-item">
+                <img src="../../image/anonymous.jpg" class="img-circle img-user">
+                <span class="username">匿名用户</span>
+                <div class="grade-con">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                </div>
+                <div class="appraise-con">
+                    <p>
+                        突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断突然从某天起，她不断
+                    </p>
+                </div>
+                <div class="appraise-time">
+                    <p>2019-05-10 22:23:30</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -45,7 +45,7 @@ const config = {
 	output: {
 		filename: 'js/[name].js',
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '//localhost:8089/bookshop_user_fe/dist/'
+		publicPath: '//47.95.255.212:8082/bookshop_user_fe/dist/'
 	},
 
 	//配置开发环境服务器
@@ -62,8 +62,8 @@ const config = {
 		hot: true,
 
 		inline: true,
-		//打包文件在内存中的输出路径,可以通过http://localhost:8088/bookshop_user_fe/dist/访问
-		publicPath: '/bookshop_user_fe/dist/'
+		//打包文件在内存中的输出路径,可以通过http://localhost:8088/mmall_fe/dist/访问
+		publicPath: '/mmall_fe/dist/'
 	},
 
 	//各种文件和loader

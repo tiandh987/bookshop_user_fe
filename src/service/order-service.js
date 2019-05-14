@@ -52,6 +52,33 @@ var _order = {
     		success : resolve,
     		error   : reject
     	});
+    },
+    
+    // 确认收货
+    confirmReceipt : function(orderNo, resolve, reject){
+    	_mm.request({
+    		url     : _mm.getServerUrl('/order/confirmReceipt.do'),
+    		data    : {
+    			orderNo : orderNo
+    		},
+    		success : resolve,
+    		error   : reject
+    	});
+    },
+    
+     // 提交评价
+    publishAppraise : function(orderNo, productId, rank ,appraise, resolve, reject){
+    	_mm.request({
+    		url     : _mm.getServerUrl('/appraise/create.do'),
+    		data    : {
+    			orderId   : orderNo,
+                productId : productId,
+                grade     : rank,
+                text      : appraise
+    		},
+    		success : resolve,
+    		error   : reject 
+    	});
     }
 }
 module.exports = _order;

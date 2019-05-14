@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js --mode development",
     "dev": "webpack-dev-server --inline --config webpack.config.dev.js --mode development",
-    "prod": "webpack --config webpack.config.dev.js --mode production"
+    "dev1": "webpack --config webpack.config.dev.js --mode development",
+    "prod": "webpack --config webpack.config.prod.js --mode production"
   },
   "repository": {
     "type": "git",

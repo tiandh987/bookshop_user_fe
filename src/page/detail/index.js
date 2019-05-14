@@ -55,6 +55,30 @@ var page = {
                 _mm.errorTips(err.msg);
             });
         });
+        //商品详情
+        $(document).on('click', '#tab-detail', function(){
+            var detailTab = document.getElementById("tab-detail");
+            var appraiseTab = document.getElementById("tab-appraise");
+            var detailCon = document.getElementById("detail-con");
+            var appraiseCon = document.getElementById("appraise-con");
+            detailTab.className = "tab-item active";
+            appraiseTab.className = "tab-item";
+            appraiseCon.style.display='none';
+            detailCon.style.display='';
+        });
+        //商品评价
+        $(document).on('click', '#tab-appraise', function(){
+             var detailTab = document.getElementById("tab-detail");
+             var appraiseTab = document.getElementById("tab-appraise");
+             var detailCon = document.getElementById("detail-con");
+             var appraiseCon = document.getElementById("appraise-con");
+             detailTab.className = "tab-item";
+             appraiseTab.className = "tab-item active";
+             detailCon.style.display='none';
+             appraiseCon.style.display='';
+             
+             
+        });
     },
     // 加载商品详情的数据
     loadDetail : function(){
@@ -74,6 +98,17 @@ var page = {
         }, function(err){
             $pageWrap.html('<p class="err-tip">找不到您查找的商品~~~</p>');
         });
+        // 请求商品appraise信息
+        // _product.getProductAppraise(this.data.productId, function(res){
+        //     _this.filter(res.data);
+        //     // 缓存住detail的数据
+        //     _this.data.detailInfo = res.data;
+        //     // render
+        //     html = _mm.renderHtml(templateDetail, res.data);
+        //     $pageWrap.html(html);
+        // }, function(err){
+        //     $pageWrap.html('<p class="err-tip">找不到您查找的商品~~~</p>');
+        // });
     },
     // 数据匹配
     filter : function(data){
