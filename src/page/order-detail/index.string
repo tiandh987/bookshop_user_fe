@@ -40,6 +40,24 @@
 					取消订单
 				</a>
                 {{/isCancelable}}
+                {{#confirmReceipt}}
+                <button type="button" class="btn" data-toggle="modal" data-target=".bs-example-modal-sm">
+                    确认收货
+                </button>
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">确认收货?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn confirmReceipt">确认</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/confirmReceipt}}
 			</div>
 		</div>
 	</div>
@@ -59,6 +77,9 @@
 				<th class="cell-th cell-price">单价</th>
 				<th class="cell-th cell-count">数量</th>
 				<th class="cell-th cell-total">小计</th>
+                {{#isAppraise}}
+                    <th class="cell-th cell-operate">评价</th>
+                {{/isAppraise}}
 			</tr>
 			<!-- 订单商品信息 -->
 			{{#orderItemVoList}}
@@ -75,7 +96,45 @@
 				</td>
 				<td class="cell cell-price">￥{{currentUnitPrice}}</td>
 				<td class="cell cell-count">{{quantity}}</td>
-				<td class="cell cell-total">￥{{totalPrice}}</td>
+				<td class="cell cell-total">￥{{totalPrice}}</td>               
+                {{^pIsAppraise}}
+                <td class="cell cell-operate">
+                    <button type="button" class="btn-appraise" data-toggle="modal" data-target="#{{productId}}">去评价</button>
+                    <div id="{{productId}}" class="modal bs-example-modal-lg">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="gridSystemModalLabel">商品评价</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="radio-appraise">
+                                        <span id="orderNo">{{orderNo}}</span>
+                                        <label><input id="one-{{productId}}" name="appraise" type="radio" value="1" />差评</label> 
+                                        <label><input id="two-{{productId}}" name="appraise" type="radio" value="2" />中评</label> 
+                                        <label><input id="three-{{productId}}" name="appraise" type="radio" value="3" />好评</label> 
+                                    </div>
+                                    <div class="btns-appraise">                                 
+                                        <button class="appraise bad" productId={{productId}}><span id="bad-{{productId}}"  class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></button> 
+                                        <button class="appraise mid" productId={{productId}}><span id="mid-{{productId}}"  class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></button> 
+                                        <button class="appraise great" productId={{productId}}><span id="great-{{productId}}"  class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></button> 
+                                    </div>
+                                    
+                                    <textarea id="appraise-text-{{productId}}" class="form-control" rows="3" placeholder="字数不多于50字" maxlength="50"></textarea>  
+                                </div>
+                                <div class="modal-footer">       
+                                    <button type="button" class="btn btn-publish" productId={{productId}}>发表</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>               
+                {{/pIsAppraise}}
+                {{#pIsAppraise}}
+                    <td class="cell cell-operate">
+                        <button class="btn-appraise has-appraise">已评价</button>
+                    </td>
+                {{/pIsAppraise}}
 			</tr>
 			{{/orderItemVoList}}
 		</table>
