@@ -7,10 +7,17 @@ var _cart           = require('service/cart-service.js');
 var templateDetail   = require('./index.string');
 var templateAppraiseType = require('./appraise-type.string');
 var templateAppraise = require('./appraise.string');
+var Pagination      = require('util/pagination/index.js');
 
 var page = { 
     data : {
         productId : _mm.getUrlParam('productId') || '',
+        listParam : {
+            productId : _mm.getUrlParam('productId') || '',
+            grade     : '',
+            pageNum   : 1,
+            pageSize  : 15
+        }
     },
     
     appraiseType : {
@@ -115,16 +122,8 @@ var page = {
              _this.appraiseTypeInit({
                  name: 'all-appraise'
              });
-             
              // 请求商品appraise信息
-             _product.getProductAppraise(productId, null, function(res){
-                 _this.appraiseFilter(res.data);
-                 console.log(res.data);
-                 var appraiseHtml = _mm.renderHtml(templateAppraise, res.data);
-                 $('.appraise-items').html(appraiseHtml);
-             }, function(err){
-                 $('.appraise-items').html('<p class="err-tip">该商品暂无评论</p>');
-             });
+             _this.loadAppraise();
         });
         //商品评价类型切换
         $(document).on('click', '.tab-appraise-type', function(){
@@ -136,40 +135,19 @@ var page = {
              // all-appraise good-appraise mid-appraise bad-appraise
              if("all-appraise" == type){
                  // 请求商品appraise信息
-                 _product.getProductAppraise(productId, null, function(res){
-                     _this.appraiseFilter(res.data);
-                     var appraiseHtml = _mm.renderHtml(templateAppraise, res.data);
-                     $('.appraise-items').html(appraiseHtml);
-                 }, function(err){
-                     $('.appraise-items').html('<p class="err-tip">该商品暂无评论</p>');
-                 });
+                 _this.loadAppraise();
              }else if("good-appraise" == type){
                  // 请求商品appraise信息
-                 _product.getProductAppraise(productId, 3, function(res){
-                     _this.appraiseFilter(res.data);
-                     var appraiseHtml = _mm.renderHtml(templateAppraise, res.data);
-                     $('.appraise-items').html(appraiseHtml);
-                 }, function(err){
-                     $('.appraise-items').html('<p class="err-tip">该商品暂无评论</p>');
-                 });
+                 _this.data.listParam.grade = 3;
+                 _this.loadAppraise();
              }else if("mid-appraise" == type){
                 // 请求商品appraise信息
-                _product.getProductAppraise(productId, 2, function(res){
-                    _this.appraiseFilter(res.data);
-                    var appraiseHtml = _mm.renderHtml(templateAppraise, res.data);
-                    $('.appraise-items').html(appraiseHtml);
-                }, function(err){
-                    $('.appraise-items').html('<p class="err-tip">该商品暂无评论</p>');
-                });
+                _this.data.listParam.grade = 2;
+                _this.loadAppraise();
              }else if("bad-appraise" == type){
                  // 请求商品appraise信息
-                 _product.getProductAppraise(productId, 1, function(res){
-                     _this.appraiseFilter(res.data);
-                     var appraiseHtml = _mm.renderHtml(templateAppraise, res.data);
-                     $('.appraise-items').html(appraiseHtml);
-                 }, function(err){
-                     $('.appraise-items').html('<p class="err-tip">该商品暂无评论</p>');
-                 });
+                 _this.data.listParam.grade = 1;
+                 _this.loadAppraise();
              }
         });
     },
@@ -192,6 +170,29 @@ var page = {
             $pageWrap.html('<p class="err-tip">找不到您查找的商品~~~</p>');
         });
     },
+    // 请求商品appraise信息
+    loadAppraise : function(){
+        // console.log("loadAppraise");
+        var _this = this;
+        // 请求商品appraise信息
+        _product.getProductAppraise(_this.data.listParam, function(res){
+            _this.appraiseFilter(res.data);
+            // console.log(res.data);
+            var appraiseHtml = _mm.renderHtml(templateAppraise, res.data);
+            $('.appraise-items').html(appraiseHtml);
+            // 加载分页信息
+            _this.loadPagination({
+                hasPreviousPage : res.data.hasPreviousPage,
+                prePage         : res.data.prePage,
+                hasNextPage     : res.data.hasNextPage,
+                nextPage        : res.data.nextPage,
+                pageNum         : res.data.pageNum,
+                pages           : res.data.pages
+            });
+        }, function(err){
+            $('.appraise-items').html('<p class="err-tip">该商品暂无评论</p>');
+        });
+    },
     // 数据匹配
     filter : function(data){
         data.subImages = data.subImages.split(',');
@@ -212,6 +213,19 @@ var page = {
                 data.list[i].bad  = true;
             }
         }
+    },
+    // 加载分页信息
+    loadPagination : function(pageInfo){
+        // console.log("page");
+    	var _this = this;
+    	this.pagination ? '' : (this.pagination = new Pagination());
+    	this.pagination.render($.extend({}, pageInfo, {
+    		container : $('.pg-content'),
+    		onSelectPage : function(pageNum){
+    			_this.data.listParam.pageNum = pageNum;
+    			_this.loadAppraise();
+    		}
+    	}));
     }
 };
 

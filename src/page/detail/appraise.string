@@ -32,3 +32,5 @@
 {{^list}}
     <p class="no-appraise">暂无评论</p>
 {{/list}}
+<!-- 分页容器 -->
+<div class="pg-content"></div>

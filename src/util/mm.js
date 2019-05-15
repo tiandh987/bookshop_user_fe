@@ -1,9 +1,9 @@
 var Hogan = require('hogan.js');
 
 var conf = {
-	// serverHost : 'http://47.95.255.212:8080'
+	serverHost : 'http://47.95.255.212:8080'
     // serverHost : 'http://39.96.48.39'
-    serverHost : 'http://127.0.0.1:8080'
+    // serverHost : 'http://127.0.0.1:8080'
 };
 
 // 通用工具类

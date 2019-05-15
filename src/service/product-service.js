@@ -22,15 +22,10 @@ var _product = {
         });
     },
     // 获取商品评价信息
-    getProductAppraise : function(productId, grade, resolve, reject){
+    getProductAppraise : function(listParam, resolve, reject){
         _mm.request({
             url     : _mm.getServerUrl('/appraise/query_appraise_model.do'),
-            data    : {
-                productId : productId,
-                grade : grade,
-                pageNum : 1,
-                pageSize : 10
-            },
+            data    : listParam,
             success : resolve,
             error   : reject
         });
