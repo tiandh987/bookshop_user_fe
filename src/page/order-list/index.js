@@ -32,7 +32,7 @@ var page = {
             orderListHtml = '',
             $listCon      = $('.order-list-con');
         _order.getOrderList(_this.data.listParam, function(res){
-            // 渲染html
+            // 渲染html 
             orderListHtml = _mm.renderHtml(templateOrderList, res.data);
             $listCon.html(orderListHtml);
             // 加载分页信息

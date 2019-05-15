@@ -29,7 +29,7 @@ var _order = {
     		error   : reject
     	});
     },
-    
+     
     // 获取订单详情
     getOrderDetail : function(orderNo, resolve, reject){
     	_mm.request({
