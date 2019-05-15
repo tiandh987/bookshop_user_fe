@@ -123,6 +123,8 @@ var page = {
                  name: 'all-appraise'
              });
              // 请求商品appraise信息
+             _this.data.listParam.grade = '';
+             _this.data.listParam.pageNum = 1;
              _this.loadAppraise();
         });
         //商品评价类型切换
@@ -135,18 +137,23 @@ var page = {
              // all-appraise good-appraise mid-appraise bad-appraise
              if("all-appraise" == type){
                  // 请求商品appraise信息
+                 _this.data.listParam.grade = '';
+                 _this.data.listParam.pageNum = 1;
                  _this.loadAppraise();
              }else if("good-appraise" == type){
                  // 请求商品appraise信息
                  _this.data.listParam.grade = 3;
+                 _this.data.listParam.pageNum = 1;
                  _this.loadAppraise();
              }else if("mid-appraise" == type){
                 // 请求商品appraise信息
                 _this.data.listParam.grade = 2;
+                _this.data.listParam.pageNum = 1;
                 _this.loadAppraise();
              }else if("bad-appraise" == type){
                  // 请求商品appraise信息
                  _this.data.listParam.grade = 1;
+                 _this.data.listParam.pageNum = 1;
                  _this.loadAppraise();
              }
         });
